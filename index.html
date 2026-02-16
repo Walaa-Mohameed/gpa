@@ -5,34 +5,30 @@
 </head>
 <body>
 
+<h2>Login</h2>
+
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+<button onclick="signup()">Sign Up</button>
+<button onclick="login()">Login</button>
+
+<p id="message"></p>
+
+<hr>
+
 <h2>GPA Calculator</h2>
-
-<input type="number" id="grade" placeholder="Grade (مثلا 4)">
+<input type="number" id="grade" placeholder="Grade">
 <input type="number" id="hours" placeholder="Credit Hours">
-
 <button onclick="calculate()">Calculate</button>
-
 <p id="result"></p>
 
-<script>
-function calculate() {
-  let grade = document.getElementById("grade").value;
-  let hours = document.getElementById("hours").value;
-
-  let gpa = grade * hours;
-  document.getElementById("result").innerHTML = "Result = " + gpa;
-}
-</script>
-
-  <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+<script type="module">
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
+  from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyCc60J9qzpmUC-g4shF8IjHCl9uaUupQ_4",
     authDomain: "gpa-site-8d968.firebaseapp.com",
@@ -42,11 +38,43 @@ function calculate() {
     appId: "1:309339115737:web:cd0e113dbcaaa76ea96ec8",
     measurementId: "G-S7PLGPMWZJ"
   };
-
-  // Initialize Firebase
+ 
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-</body>
+  const auth = getAuth(app);
 
+  window.signup = function() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        document.getElementById("message").innerHTML = "Account Created";
+      })
+      .catch(error => {
+        document.getElementById("message").innerHTML = error.message;
+      });
+  }
+
+  window.login = function() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        document.getElementById("message").innerHTML = "Login Successful";
+      })
+      .catch(error => {
+        document.getElementById("message").innerHTML = error.message;
+      });
+  }
+
+  window.calculate = function() {
+    let grade = document.getElementById("grade").value;
+    let hours = document.getElementById("hours").value;
+    let gpa = grade * hours;
+    document.getElementById("result").innerHTML = "Result = " + gpa;
+  }
+</script>
+
+</body>
 </html>
