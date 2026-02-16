@@ -24,6 +24,29 @@ function calculate() {
 }
 </script>
 
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCc60J9qzpmUC-g4shF8IjHCl9uaUupQ_4",
+    authDomain: "gpa-site-8d968.firebaseapp.com",
+    projectId: "gpa-site-8d968",
+    storageBucket: "gpa-site-8d968.firebasestorage.app",
+    messagingSenderId: "309339115737",
+    appId: "1:309339115737:web:cd0e113dbcaaa76ea96ec8",
+    measurementId: "G-S7PLGPMWZJ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 
 </html>
