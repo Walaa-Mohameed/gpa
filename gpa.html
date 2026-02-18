@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GPA Calculator</title>
+</head>
+<body>
+
+<h2>GPA Calculator</h2>
+
+<input type="number" id="grade" placeholder="Grade">
+<input type="number" id="hours" placeholder="Credit Hours">
+<button onclick="calculate()">Calculate</button>
+
+<p id="result"></p>
+
+<script>
+function calculate() {
+  let grade = document.getElementById("grade").value;
+  let hours = document.getElementById("hours").value;
+  let gpa = grade * hours;
+  document.getElementById("result").innerHTML = "Result = " + gpa;
+}
+</script>
+
+</body>
+</html>
