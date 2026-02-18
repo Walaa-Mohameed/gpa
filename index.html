@@ -114,10 +114,19 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
+  const adminAccount = {
+  email: "admin@example.com",
+  password: "123456"
+};
+
   window.login = function() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
+    
 
+     if(email === adminAccount.email && password === adminAccount.password) {
+    window.location.href = "dashboard.html";
+  } else {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         window.location.href = "gpa.html";
@@ -125,6 +134,7 @@ const firebaseConfig = {
       .catch(error => {
         document.getElementById("message").innerHTML = error.message;
       });
+  }
   }
 
 </script>
