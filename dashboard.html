@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <style>
+    table { border-collapse: collapse; width: 80%; margin: auto; }
+    th, td { border: 1px solid #333; padding: 8px; text-align: center; }
+    button { padding: 4px 8px; }
+  </style>
+</head>
+<body>
+
+<h2 style="text-align:center;">Admin Dashboard</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="userTable">
+  </tbody>
+</table>
+
+<script>
+// مثال على المستخدمين المخزنين محليًا (للتجربة)
+let users = [
+  {name: "Ali", email: "ali@example.com", password: "1111"},
+  {name: "Sara", email: "sara@example.com", password: "2222"},
+  {name: "Hana", email: "hana@example.com", password: "3333"}
+];
+
+function renderTable() {
+  const tbody = document.getElementById("userTable");
+  tbody.innerHTML = "";
+  users.forEach((user, index) => {
+    tbody.innerHTML += `
+      <tr>
+        <td><input value="${user.name}" onchange="updateName(${index}, this.value)"></td>
+        <td>${user.email}</td>
+        <td>${user.password}</td>
+        <td><button onclick="deleteUser(${index})">Delete</button></td>
+      </tr>
+    `;
+  });
+}
+
+function updateName(index, newName) {
+  users[index].name = newName;
+}
+
+function deleteUser(index) {
+  if(confirm("Are you sure?")) {
+    users.splice(index, 1);
+    renderTable();
+  }
+}
+
+// عرض الجدول أول مرة
+renderTable();
+</script>
+
+</body>
+</html>
