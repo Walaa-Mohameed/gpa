@@ -27,10 +27,10 @@ function calculate() {
 
 <!DOCTYPE html>
 <html>
+
 <head>
   <title> GPA System</title>
   <style>
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -61,10 +61,10 @@ function calculate() {
       background: white;
       padding: 40px;
       border-radius: 12px;
-      width: 700px;
-      height: 700px;
+      /* width: 2000px; */
+      /* height: 700px; */
       text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
     .logo {
@@ -108,86 +108,87 @@ function calculate() {
     }
 
     .login-card {
-    width: 400px;
-    padding: 30px;
-    background: white;
-    border-radius: 12px;
-    text-align: left;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  }
+      width: 800px;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      text-align: left;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
 
-  .form-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-  }
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
 
-  label {
-    width: 100px; /* عرض ثابت للـ label */
-    font-weight: bold;
-  }
+    label {
+      width: 140px;
+      font-weight: bold;
+    }
 
-  input {
-    flex: 1; /* ياخد باقي المساحة */
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-  }
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
 
-  button {
-    width: 100%;
-    padding: 12px;
-    background-color: #4e73df;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4e73df;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
 
-  button:hover {
-    background-color: #2e59d9;
-  }
+    button:hover {
+      background-color: #2e59d9;
+    }
 
+    .subject-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      align-items: center;
+    }
   </style>
 </head>
+
 <body>
 
   <h2 class="title">GPA Calculator</h2>
   <div class="container">
     <div class="login-card">
-  
-      <div class="form-group">
-        <label for="grade">Grade:</label>
-        <input type="grade" id="grade" placeholder="Enter your grade">
-      </div>
-  
-      <div class="form-group">
-        <label for="hours">Hours:</label>
-        <input type="hours" id="hours" placeholder="Enter your hours">
-      </div>
 
-      <button onclick="calculate()">Calculate</button>
-
-      <p id="result"></p>
   
+      <button onclick="generateSubjects()">Expected Semester GPA</button>
+      <br>
+      <button onclick="generateSubjects()">...</button>
+
     </div>
   </div>
 
-<footer>
-  Developed by: Eng.Ahmed Yasser - Eng.Heba Salah - Eng.Walaa Mohamed
-</footer>
+  <footer>
+    Developed by: Eng.Ahmed Yasser - Eng.Heba Salah - Eng.Walaa Mohamed
+  </footer>
 
-<script>
-  function calculate() {
-    let grade = document.getElementById("grade").value;
-    let hours = document.getElementById("hours").value;
-    let gpa = grade * hours;
-    document.getElementById("result").innerHTML = "Result = " + gpa;
+  <script>
+
+
+  function goToGPA() {
+    window.location.href = "gpa1.html";
   }
+
+
+
   </script>
 
 </body>
+
 </html>
